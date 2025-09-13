@@ -1,0 +1,111 @@
+// src/components/ChatScreen/ChatScreen.module.scss
+@import '../../styles/variables';
+
+.chatScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $bg-primary;
+}
+
+@import '../../styles/global.scss';
+
+
+.chatScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.chatContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  gap: 1.2rem;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.errorBanner {
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+}
+
+
+.messageBubble {
+  max-width: 70%;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 0.8rem;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  box-shadow: 0 2px 8px rgba(30,144,255,0.04);
+  word-break: break-word;
+  transition: background 0.3s, color 0.3s;
+}
+.user {
+  background: var(--color-bubble-user);
+  color: #fff;
+  align-self: flex-end;
+}
+.assistant {
+  background: var(--color-bubble-assistant);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  align-self: flex-start;
+}
+
+
+.inputBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-input-bg);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(30,144,255,0.04);
+  padding: 0.75rem 1.2rem;
+  border: 1px solid var(--color-border);
+  transition: background 0.3s, color 0.3s;
+}
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 1.08rem;
+  outline: none;
+  padding: 0.5rem 0;
+}
+.sendBtn {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sendBtn:hover {
+  background: var(--color-accent);
+}
+// Removed misplaced properties and fixed block structure
+
+@media (max-width: $breakpoint-mobile) {
+  .errorBanner {
+    width: 90%;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}

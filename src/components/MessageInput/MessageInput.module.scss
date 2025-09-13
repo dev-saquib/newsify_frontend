@@ -1,0 +1,87 @@
+// src/components/MessageInput/MessageInput.module.scss
+@import '../../styles/variables';
+
+.messageInput {
+  padding: 1rem;
+  border-top: 1px solid $border-color;
+  background-color: $bg-primary;
+}
+
+.inputContainer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.textarea {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  resize: none;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 44px;
+  max-height: 120px;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 2px rgba($primary, 0.2);
+  }
+  
+  &:disabled {
+    background-color: $bg-secondary;
+    cursor: not-allowed;
+  }
+}
+
+.sendButton, .stopButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: $border-radius;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+  transition: background-color 0.2s;
+
+  &:focus {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+.sendButton {
+  background-color: $primary;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: darken($primary, 10%);
+  }
+
+  &:disabled {
+    background-color: $bg-secondary;
+    color: $text-secondary;
+    cursor: not-allowed;
+  }
+}
+
+.stopButton {
+  background-color: $error;
+  color: white;
+
+  &:hover {
+    background-color: darken($error, 10%);
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .messageInput {
+    padding: 0.75rem;
+  }
+  
+  .sendButton, .stopButton {
+    padding: 0.75rem 1rem;
+  }
+}

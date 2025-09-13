@@ -1,0 +1,77 @@
+// src/components/SessionControls/SessionControls.module.scss
+@import '../../styles/variables';
+
+.sessionControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: $bg-tertiary;
+  border-bottom: 1px solid $border-color;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sessionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sessionId, .sessionTTL {
+  font-size: 0.85rem;
+  color: $text-secondary;
+}
+
+.sessionId {
+  display: inline-block;
+  background: $bg-secondary;
+  color: $primary;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 0.3rem 1rem;
+  border-radius: 12px;
+  border: 1px solid $border-color;
+  box-shadow: 0 1px 4px rgba(30,144,255,0.06);
+  margin-bottom: 0.5rem;
+  transition: background 0.3s, color 0.3s;
+  user-select: all;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background-color: $bg-primary;
+  color: $text-primary;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: $bg-secondary;
+  }
+
+  &:focus {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .sessionControls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .buttons {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
