@@ -1,7 +1,7 @@
 // src/hooks/useSession.ts
 import { useState, useEffect } from 'react';
 import { apiService } from '../services/api';
-import { Session, Message } from '../types';
+import { Session } from '../types';
 
 export const useSession = () => {
   const [session, setSession] = useState<Session | null>(null);
@@ -40,13 +40,13 @@ export const useSession = () => {
     try {
       const newSession = await apiService.createSession();
       console.log('Session created:', newSession);
-      console.log('Saving sessionId to localStorage:', newSession.sessionId);
+      console.log('Saving sessionId to localStorage:', newSession.id);
       setSession({
-        id: newSession.sessionId,
+        id: newSession.id,
         ttl: newSession.ttl ?? 86400,
         createdAt: new Date().toISOString(),
       });
-      localStorage.setItem('sessionId', newSession.sessionId);
+      localStorage.setItem('sessionId', newSession.id);
       setError(null);
       return newSession;
     } catch (err) {

@@ -1,6 +1,6 @@
 // src/hooks/useChat.ts
 import { useState, useCallback, useRef } from 'react';
-import { Message, QueryResponse, Source } from '../types';
+import { Message, QueryResponse } from '../types';
 import { apiService } from '../services/api';
 
 export const useChat = (sessionId: string) => {

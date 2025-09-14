@@ -1,5 +1,5 @@
 // src/App.tsx
-import React from 'react';
+// import React from 'react';
 import { useSession } from './hooks/useSession';
 import { ChatScreen } from './components/ChatScreen/ChatScreen';
 import { LoadingScreen } from './components/LoadingScreen/LoadingScreen';

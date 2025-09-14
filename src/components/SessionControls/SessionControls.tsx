@@ -1,5 +1,6 @@
 // src/components/SessionControls/SessionControls.tsx
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import React from 'react';
 import styles from './SessionControls.module.scss';
 
 interface SessionControlsProps {
@@ -11,26 +12,26 @@ interface SessionControlsProps {
 export const SessionControls: React.FC<SessionControlsProps> = ({
   sessionId,
   onResetSession,
-  ttl,
+//   ttl,
 }) => {
-  const [copied, setCopied] = useState(false);
+//   const [copied, setCopied] = useState(false);
 
-  const copySessionLink = async () => {
-    const url = `${window.location.origin}${window.location.pathname}?session=${sessionId}`;
-    try {
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  };
+//   const copySessionLink = async () => {
+//     const url = `${window.location.origin}${window.location.pathname}?session=${sessionId}`;
+//     try {
+//       await navigator.clipboard.writeText(url);
+//       setCopied(true);
+//       setTimeout(() => setCopied(false), 2000);
+//     } catch (err) {
+//       console.error('Failed to copy:', err);
+//     }
+//   };
 
-  const formatTTL = (seconds: number) => {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    return `${hours}h ${minutes}m`;
-  };
+//   const formatTTL = (seconds: number) => {
+//     const hours = Math.floor(seconds / 3600);
+//     const minutes = Math.floor((seconds % 3600) / 60);
+//     return `${hours}h ${minutes}m`;
+//   };
 
   return (
     <div className={styles.sessionControls}>
