@@ -1,5 +1,6 @@
 // src/components/MessageItem/MessageItem.tsx
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import { Message } from '../../types';
 import styles from './MessageItem.module.scss';
 
@@ -35,13 +36,17 @@ export const MessageItem: React.FC<MessageItemProps> = ({ message }) => {
     <div className={`${styles.message} ${styles[message.type]}`}>
       <div className={styles.messageHeader}>
         <span className={styles.sender}>
-          {message.type === 'user' ? 'You ' : 
-           message.type === 'assistant' ? 'Assistant ' : 'System'}
+          {message.type === 'user' ? 'You ' :
+            message.type === 'assistant' ? 'Assistant ' : 'System'}
         </span>
         <span className={styles.timestamp}>{formatTime(message.timestamp)}</span>
       </div>
       <div className={styles.messageContent}>
-          {message.type === 'assistant' ? typedContent : message.content}
+        {message.type === 'assistant' ? (
+          <ReactMarkdown>{typedContent}</ReactMarkdown>
+        ) : (
+          <ReactMarkdown>{message.content}</ReactMarkdown>
+        )}
       </div>
       {message.sources && message.sources.length > 0 && (
         <div className={styles.sources}>
@@ -54,7 +59,7 @@ export const MessageItem: React.FC<MessageItemProps> = ({ message }) => {
               rel="noopener noreferrer"
               className={styles.sourceLink}
             >
-                {source.title || source.url}
+              {source.title || source.url}
             </a>
           ))}
         </div>
